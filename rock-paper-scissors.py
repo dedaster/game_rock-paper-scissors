@@ -34,9 +34,10 @@ def paper():
 # функция случайного выбора компьютера и итога игры
 def comp_choice(player_ch):
     comp_ch = random.choice(['Камень','Ножницы','Бумага'])
-    comp = tk.Label(window, text = comp_ch, width = w, height = h, bg = "white",).grid(row = 3, column = 2)
+    tk.Label(window, text = comp_ch, width = w, height = h, bg = "white",).grid(row = 3, column = 2)
     opt = ["Камень", "Ножницы", "Бумага"]
     win = ["Победа за тобой!", "Поражение", "Ничья"]
+    # условия результатов
     if player_ch == opt[0] and comp_ch == opt[1]:
         winner = win[0]
     elif player_ch == opt[0] and comp_ch == opt[2]:
@@ -52,25 +53,22 @@ def comp_choice(player_ch):
     else:
         winner = win[2]
         
-    # вывод результата
-    if winner == win[0]:
-        res = tk.Label(window, text = winner, width = w*3, height = h, bg = "white", fg = "green").grid(row = 0, columnspan = 3)
-    elif winner == win[1]:
-        res = tk.Label(window, text = winner, width = w*3, height = h, bg = "white", fg = "red").grid(row = 0, columnspan = 3)
-    else:
-        res = tk.Label(window, text = winner, width = w*3, height = h, bg = "white", fg = "black").grid(row = 0, columnspan = 3)
-    
     # списки комментариев к результатам
     reswin = random.choice(["Так держать!", "Ты потрясающий!", "Невероятный манёвр!"])
     reslose = random.choice(["Повезёт в другой раз!", "Всё ещё впереди!", "У тебя получится!"])
     resdraw = random.choice(["Вот это схватка!", "Встретились 2 титана!", "Какое напряжение!"])
-    
+    # вывод результата
     if winner == win[0]:
+        res = tk.Label(window, text = winner, width = w*3, height = h, bg = "white", fg = "green").grid(row = 0, columnspan = 3)
         comments = tk.Label(window, text = reswin, width = w, height = 1).grid(row = 1, column = 1, pady = 5)
     elif winner == win[1]:
+        res = tk.Label(window, text = winner, width = w*3, height = h, bg = "white", fg = "red").grid(row = 0, columnspan = 3)
         comments = tk.Label(window, text = reslose, width = w, height = 1).grid(row = 1, column = 1, pady = 5)
     else:
+        res = tk.Label(window, text = winner, width = w*3, height = h, bg = "white", fg = "black").grid(row = 0, columnspan = 3)
         comments = tk.Label(window, text = resdraw, width = w, height = 1).grid(row = 1, column = 1, pady = 5)
+            
+        
 #внешний вид окна
 window = tk.Tk()
 window.title("Камень-ножницы-бумага. GOTY Edition")
