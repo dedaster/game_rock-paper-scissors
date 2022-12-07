@@ -8,11 +8,11 @@ Created on Sat Dec  3 04:00:06 2022
 import tkinter as tk # импортируем библиотеку
 import random
 
-# функция закрытия окна
-def close_game(): # функция действия после нажатия кнопки
-    window.destroy() # закрытие окна
+# функция закрытия игры
+def close_game():
+    window.destroy()
   
-# функция вывода выбора игрока
+# функции выбора игрока
 def rock():
     player_ch = 'Камень'
     player = tk.Label(window, text = player_ch, width = 25, textvariable=rock, height = 5, bg = "white", fg = "black").grid(row = 1, column = 0)
@@ -28,6 +28,7 @@ def paper():
     player = tk.Label(window, text = player_ch, width = 25, height = 5, bg = "white", fg = "black").grid(row = 1, column = 0)
     comp_choice(player_ch)
     
+# функция случайного выбора компьютера и итога игры
 def comp_choice(player_ch):
     comp_ch = random.choice(['Камень','Ножницы','Бумага'])
     comp = tk.Label(window, text = comp_ch, width = 25, height = 5, bg = "white", fg = "black").grid(row = 1, column = 2)
@@ -59,10 +60,10 @@ player = tk.Label(window, text = "Твой ход", width = 25, height = 5, bg =
 vs = tk.Label(window, text = "против", width = 25, height = 3, fg = "black").grid(row = 1, column = 1)
 comp = tk.Label(window, text = "Ход компьютера", width = 25, height = 5, bg = "white", fg = "black").grid(row = 1, column = 2)
 #кнопки выбора
-btn_rock = tk.Button(text = "Камень", width = 25, height = 5, bg = "white", fg = "black", command = rock).grid(row = 2, column = 0) # command отсылается к функции, которая выполнится по нажатию кнопки
-btn_scissors = tk.Button(text = "Ножницы", width = 25, height = 5, bg = "white", fg = "black", command = scissors).grid(row = 2, column = 1) # command отсылается к функции, которая выполнится по нажатию кнопки
-btn_paper = tk.Button(text = "Бумага", width = 25, height = 5, bg = "white", fg = "black", command = paper).grid(row = 2, column = 2) # command отсылается к функции, которая выполнится по нажатию кнопки
+btn_rock = tk.Button(text = "Камень", width = 25, height = 5, bg = "white", fg = "black", command = rock).grid(row = 2, column = 0)
+btn_scissors = tk.Button(text = "Ножницы", width = 25, height = 5, bg = "white", fg = "black", command = scissors).grid(row = 2, column = 1)
+btn_paper = tk.Button(text = "Бумага", width = 25, height = 5, bg = "white", fg = "black", command = paper).grid(row = 2, column = 2)
 # кнопка выхода из игры
-button = tk.Button(text = "Выйти из игры", width = 25, height = 3, bg = "white", fg = "black", command = close_game).grid(row = 3, column = 2) # command отсылается к функции, которая выполнится по нажатию кнопки
+button = tk.Button(text = "Выйти из игры", width = 25, height = 3, bg = "white", fg = "black", command = close_game).grid(row = 3, column = 2)
 
 window.mainloop()
